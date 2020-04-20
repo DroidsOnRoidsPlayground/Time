@@ -2,7 +2,7 @@ const val kotlinVersion = "1.3.71"
 
 object BuildPlugins {
     object Version {
-        const val androidBuildToolsVersion = "4.1.0-alpha05"
+        const val androidBuildToolsVersion = "4.1.0-alpha06"
     }
 
     const val androidGradlePlugin = "com.android.tools.build:gradle:${Version.androidBuildToolsVersion}"
@@ -14,7 +14,7 @@ object BuildPlugins {
 }
 
 object AndroidSdk {
-    const val min = 21
+    const val min = 24
     const val compile = 29
     const val target = compile
 }
