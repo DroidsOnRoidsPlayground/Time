@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("android.extensions")
+  //  id("de.mannodermaus.android-junit5")
 }
 androidExtensions {
     isExperimental = true
@@ -16,6 +17,7 @@ android {
         versionName = "1.0"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArgument("runnerBuilder", "de.mannodermaus.junit5.AndroidJUnit5Builder")
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -26,6 +28,9 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures.viewBinding = true
+    packagingOptions {
+        exclude("META-INF/LICENSE*")
+    }
 }
 
 dependencies {
@@ -35,6 +40,9 @@ dependencies {
     implementation(Libraries.constraintLayout)
     coreLibraryDesugaring(Libraries.coreLibraryDesugaring)
 
-    androidTestImplementation("junit:junit:4.13")
     androidTestImplementation("androidx.test:runner:1.2.0")
+    // (Required) Writing and executing Unit Tests on the JUnit Platform
+    androidTestImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0-M1")
+    androidTestImplementation("de.mannodermaus.junit5:android-test-core:1.2.0")
+    androidTestRuntimeOnly("de.mannodermaus.junit5:android-test-runner:1.2.0")
 }

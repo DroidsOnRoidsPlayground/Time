@@ -1,14 +1,15 @@
 package com.stylingandroid.date
 
-import org.junit.Before
-import org.junit.Test
+
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 import java.util.*
 
 class FormatterTest {
 
-    @Before
+    @BeforeEach
     fun setUp() {
         Locale.setDefault(Locale.US)
     }
